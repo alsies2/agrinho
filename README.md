@@ -1,33 +1,41 @@
-# agrinho
-# Projeto Front-end Simples 🌐
+# AgroSustentável Brasil 🌾🇧🇷
 
-Um projeto básico e interativo de front-end desenvolvido para demonstrar a integração fundamental entre HTML, CSS e JavaScript em um único arquivo. Ideal para iniciantes que estão dando os primeiros passos no desenvolvimento web.
+O **AgroSustentável Brasil** é uma página web responsiva e moderna desenvolvida para disseminar informações, práticas e pilares da agricultura sustentável no cenário brasileiro. O projeto combina um design limpo, paleta de cores foca na temática (tons de verde, azul e fundo suave) e uma estrutura baseada em componentes modernos como CSS Grid.
 
 ---
 
-## 📝 Sobre o Projeto
+## 🚀 Funcionalidades
 
-Este repositório contém uma aplicação web de página única (Single Page Application - SPA) extremamente simples. O objetivo principal é mostrar como estruturar o conteúdo (HTML), aplicar estilos visuais (CSS) e adicionar comportamentos interativos básicos (JavaScript) sem a necessidade de frameworks ou bibliotecas complexas.
+* **Design Responsivo:** Adapta-se automaticamente a dispositivos móveis, tablets e desktops utilizando `CSS Grid` e a técnica de `auto-fit`.
+* **Identidade Visual Temática:** Uso de variáveis CSS (`:root`) para gerenciamento de uma paleta de cores harmônica (Verde Agrícola, Azul Destaque e Fundo Amarelo Suave).
+* **Semântica HTML5:** Estrutura limpa utilizando as tags corretas (`<header>`, `<main>`, `<section>`) para melhor SEO e acessibilidade.
+* **Estilização Moderna:** Substituição de tags obsoletas (como `<center>`) por boas práticas de alinhamento via CSS (`text-align: center`).
 
-## ✨ Funcionalidades
-
-* **Interface Limpa:** Layout centralizado e responsivo utilizando Flexbox.
-* **Interatividade:** Um botão que, ao ser clicado, aciona uma função JavaScript.
-* **Manipulação de DOM:** O clique do botão altera dinamicamente o texto do título principal da página.
-* **Geração Aleatória:** A cor de fundo da página muda para uma cor hexadecimal gerada aleatoriamente a cada clique.
+---
 
 ## 🛠️ Tecnologias Utilizadas
 
-O projeto foi construído utilizando apenas as linguagens base da web (Vanilla):
+* **HTML5:** Estruturação semântica do conteúdo.
+* **CSS3:** Estilização baseada em variáveis, Flexbox/Grid e tipografia moderna (`Segoe UI`).
 
-* **HTML5:** Estruturação da página e dos elementos (título, parágrafo, botão).
-* **CSS3:** Estilização visual, uso de Flexbox para alinhamento e transições suaves de cor.
-* **JavaScript:** Lógica de programação para gerar cores aleatórias e manipular os elementos da tela.
+---
 
-## 🚀 Como Executar
+## 📂 Estrutura do Código
 
-Como este é um projeto estático e simples, não é necessário instalar dependências ou rodar servidores locais complexos.
+O arquivo principal contém a seguinte divisão lógica:
 
-1. Faça o clone deste repositório:
+1.  **Declaração do Documento e Meta Tags:** Configuração de codificação (`UTF-8`) e responsividade (`viewport`).
+2.  **Variáveis Globais (`:root`):** Facilidade para manutenção e troca de cores do tema em um único lugar.
+3.  **Header:** Cabeçalho centralizado com sombra suave (`box-shadow`).
+4.  **Hero Section:** Área de destaque principal com fundo azul para reter a atenção do usuário.
+5.  **Grid System (`.grid-sustentavel`):** Layout em grade que organiza os cartões (`.card`) informativos de forma dinâmica.
+
+---
+
+## 🔧 Como Executar o Projeto
+
+Como o projeto é construído estritamente com tecnologias front-end nativas (HTML/CSS), não é necessário instalar dependências.
+
+1. Clone este repositório:
    ```bash
-   git clone [https://github.com/SEU-USUARIO/nome-do-repositorio.git](https://github.com/SEU-USUARIO/nome-do-repositorio.git)
+   git clone [https://github.com/seu-usuario/nome-do-repositorio.git](https://github.com/seu-usuario/nome-do-repositorio.git)
