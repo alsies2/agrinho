@@ -3,66 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Front-end Simples</title>
-    
+    <title>AgroSustentável Brasil</title>
     <style>
-        /* CSS: Estiliza a página */
+        /* Configurações Globais e Paleta de Cores */
+        :root {
+            --verde-principal: #2E7D32;
+            --verde-escuro: #1B5E20;
+            --azul-destaque: #1565C0;
+            --amarelo-fundo: #FFFDF0; /* Amarelo claro e suave para o fundo */
+            --branco: #FFFFFF;
+            --texto-escuro: #263238;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            background-color: #f4f4f9;
-            transition: background-color 0.5s ease;
+            padding: 0;
+            background-color: var(--amarelo-fundo);
+            color: var(--texto-escuro);
+            line-height: 1.6;
         }
 
-        h1 {
-            color: #333;
+        /* Cabeçalho */
+        header {
+            background-color: var(--verde-principal);
+            color: var(--branco);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        p {
-            color: #666;
-            margin-bottom: 20px;
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
         }
 
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            color: white;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+        header p {
+            margin: 5px 0 0 0;
+            font-size: 1.1rem;
+            color: #E8F5E9;
         }
 
-        button:hover {
-            background-color: #0056b3;
+        /* Seção de Destaque (Hero) */
+        .hero {
+            background-color: var(--azul-destaque);
+            color: var(--branco);
+            padding: 50px 20px;
+            text-align: center;
         }
-    </style>
-</head>
-<body>
 
-    <h1 id="titulo">Olá, Mundo!</h1>
-    <p>Este é um exemplo básico de HTML, CSS e JavaScript.</p>
-    <button onclick="mudarCor()">Clique em mim</button>
-
-    <script>
-        /* JavaScript: Adiciona comportamento */
-        function mudarCor() {
-            // Gera uma cor hexadecimal aleatória
-            const corAleatoria = '#' + Math.floor(Math.random()*16777215).toString(16);
-            
-            // Muda a cor de fundo da página
-            document.body.style.backgroundColor = corAleatoria;
-            
-            // Muda o texto do título
-            document.getElementById('titulo').innerText = "Cor alterada com sucesso!";
+        .hero h2 {
+            margin: 0 0 15px 0;
+            font-size: 2rem;
         }
-    </script>
 
-</body>
-</html>
+        .hero p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        /* Conteúdo Principal */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Alinhamento correto do título sem usar a tag antiga <center> */
+        .titulo-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .secao-titulo {
+            color: var(--verde-escuro);
+            font-size: 1.8rem;
+            border-bottom: 3px solid var(--azul-destaque);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin: 0;
+        }
+
+        /* Grid de Cards Informativos */
+        .grid-sustentavel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: var(--branco);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow:
