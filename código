@@ -1,100 +1,397 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroSustentável Brasil</title>
+    <title>AgroBrasil Sustentável</title>
     <style>
-        /* Configurações Globais e Paleta de Cores */
+        /* --- CSS RESET E CONFIGURAÇÕES GERAIS --- */
         :root {
-            --verde-principal: #2E7D32;
-            --verde-escuro: #1B5E20;
-            --azul-destaque: #1565C0;
-            --amarelo-fundo: #FFFDF0; /* Amarelo claro e suave para o fundo */
-            --branco: #FFFFFF;
-            --texto-escuro: #263238;
+            --primary-color: #2e7d32; /* Verde Escuro */
+            --secondary-color: #4caf50; /* Verde Médio */
+            --accent-color: #f1f8e9; /* Verde Muito Claro */
+            --text-color: #333;
+            --bg-light: #ffffff;
+            --bg-dark: #1b1b1b;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--amarelo-fundo);
-            color: var(--texto-escuro);
+            font-family: var(--font-main);
             line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-light);
         }
 
-        /* Cabeçalho */
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- CABEÇALHO --- */
         header {
-            background-color: var(--verde-principal);
-            color: var(--branco);
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
         }
 
-        header p {
-            margin: 5px 0 0 0;
-            font-size: 1.1rem;
-            color: #E8F5E9;
+        nav ul {
+            display: flex;
+            gap: 20px;
         }
 
-        /* Seção de Destaque (Hero) */
+        nav a {
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- HERO SECTION (Banner Inicial) --- */
         .hero {
-            background-color: var(--azul-destaque);
-            color: var(--branco);
-            padding: 50px 20px;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            color: white;
+            padding: 0 20px;
+            margin-top: 60px; /* Compensar header fixo */
         }
 
-        .hero h2 {
-            margin: 0 0 15px 0;
-            font-size: 2rem;
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero p {
-            max-width: 800px;
-            margin: 0 auto;
             font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
         }
 
-        /* Conteúdo Principal */
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
+        .btn {
+            padding: 12px 30px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
         }
 
-        /* Alinhamento correto do título sem usar a tag antiga <center> */
-        .titulo-container {
+        .btn:hover {
+            background-color: #388e3c;
+            transform: translateY(-2px);
+        }
+
+        /* --- SEÇÕES GERAIS --- */
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            font-size: 2.2rem;
         }
 
-        .secao-titulo {
-            color: var(--verde-escuro);
-            font-size: 1.8rem;
-            border-bottom: 3px solid var(--azul-destaque);
-            display: inline-block;
-            padding-bottom: 5px;
-            margin: 0;
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: -40px auto 50px auto;
+            color: #666;
         }
 
-        /* Grid de Cards Informativos */
-        .grid-sustentavel {
+        /* --- PILARES --- */
+        #pilares {
+            background-color: var(--accent-color);
+        }
+
+        .pillars-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
         }
 
-        .card {
-            background-color: var(--branco);
-            border-radius: 8px;
-            padding: 25px;
-            box-shadow:
+        .pillar-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .pillar-card h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        /* --- PRÁTICAS --- */
+        #praticas {
+            background-color: white;
+        }
+
+        .practices-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .practice-item {
+            flex: 1 1 300px;
+            max-width: 500px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .practice-number {
+            background-color: var(--secondary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* --- INFO (Conceitos) --- */
+        #info {
+            background-color: #f4f4f4;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .info-text {
+            flex: 1 1 400px;
+        }
+
+        .info-text h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .info-image {
+            flex: 1 1 400px;
+            background-color: #ddd;
+            height: 300px;
+            border-radius: 10px;
+            background-image: url('https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* --- RODAPÉ --- */
+        footer {
+            background-color: var(--bg-dark);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .footer-content p {
+            margin-bottom: 10px;
+            opacity: 0.7;
+        }
+
+        /* --- ANIMAÇÕES (JS) --- */
+        .hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            nav { display: none; } /* Simplificação para mobile */
+            .info-image { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">AgroBrasil Sustentável</div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#pilares">Pilares</a></li>
+                <li><a href="#praticas">Práticas</a></li>
+                <li><a href="#info">Conceitos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <h1>Agricultura Sustentável no Brasil</h1>
+        <p>Produzir alimentos hoy, preservar o meio ambiente para mañana. O futuro do campo está na harmony entre tecnologia e natureza.</p>
+        <a href="#info" class="btn">Saiba Mais</a>
+    </section>
+
+    <!-- Informação/Conceitos -->
+    <section id="info">
+        <div class="info-image hidden"></div>
+        <div class="info-text hidden">
+            <h3>O que é Agricultura Sustentável?</h3>
+            <p>No cenário brasileiro, a agricultura sustentável não é apenas uma moda, mas uma necessidade. Ela busca Produzir alimentos em quantidade suficiente para suprir a população atual, mas sem comprometer os recursos naturais para as futuras gerações.</p>
+            <br>
+            <p>Isso envolve o uso de técnicas que protegem o solo, a água e a biodiversidade, garantindo a viabilidade econômica do produtor rural a longo prazo.</p>
+        </div>
+    </section>
+
+    <!-- Pilares -->
+    <section id="pilares">
+        <h2 class="section-title">Os 3 Pilares da Sustentabilidade</h2>
+        <div class="pillars-grid">
+            <!-- Pilar 1 -->
+            <div class="pillar-card hidden">
+                <span class="icon">♻️</span>
+                <h3>Meio Ambiente</h3>
+                <p>Proteção dos recursos naturais como solo, água e biodiversidade. Minimização do uso de agrotóxicos e promoção da recuperação de áreas degradadas.</p>
+            </div>
+            <!-- Pilar 2 -->
+            <div class="pillar-card hidden">
+                <span class="icon">⚖️</span>
+                <h3>Justiça Social</h3>
+                <p>Garantia de condições dignas de trabalho no campo, segurança alimentar para as comunidades rurais e acesso justo à terra e tecnologia.</p>
+            </div>
+            <!-- Pilar 3 -->
+            <div class="pillar-card hidden">
+                <span class="icon">💰</span>
+                <h3>Viabilidade Econômica</h3>
+                <p>Produtividade e competitividade no mercado. O produtor precisa ser rentável para continuar adotando práticas sustentáveis.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Práticas -->
+    <section id="praticas">
+        <h2 class="section-title">Principais Práticas no Brasil</h2>
+        <p class="section-subtitle">Technologias e metodologias que estão transformando o agronegro brasileiro.</p>
+        
+        <div class="practices-container">
+            <div class="practice-item hidden">
+                <div class="practice-number">1</div>
+                <div>
+                    <h3>Plantio Direto (SPD)</h3>
+                    <p>Technica de não revolver o solo. Plante culturascover o solo com palha, reduzindo a erosão, aumentando a matéria orgânica e diminuindo o uso de máquinas (economia de combustível).</p>
+                </div>
+            </div>
+
+            <div class="practice-item hidden">
+                <div class="practice-number">2</div>
+                <div>
+                    <h3>ILPF (Integração Lavoura-Pecuária-Floresta)</h3>
+                    <p>Sistema de produção que integra actividades agrícolas, pecuárias e florestais na mesma área, em cultivo simultâneo ou sequencial, promovendo a redução de gases de efeito estufa e uso eficiente da terra.</p>
+                </div>
+            </div>
+
+            <div class="practice-item hidden">
+                <div class="practice-number">3</div>
+                <div>
+                    <h3>Controle Biológico</h3>
+                    <p>Uso de insetos, fungos e bactérias benéficos para控制 pragas e doenças, reduzindo drasticamente a dependência de defensivos químicos sintéticos.</p>
+                </div>
+            </div>
+
+            <div class="practice-item hidden">
+                <div class="practice-number">4</div>
+                <div>
+                    <h3>Uso Racional da Água</h3>
+                    <p>Implementação de sistemas de irrigação de precisão (gotejamento) que reduzem o desperdício de água, crucial em regiões de clima seco.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>AgroBrasil Sustentável</h3>
+            <p>Promovendo o futuro da agricultura brasileira.</p>
+            <p>&copy; 2023 Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Script para animação ao rolar a página (Scroll Animation)
+        // Usa o "Intersection Observer" para detectar quando os elementos entram na tela
+        const observerOptions = {
+            threshold: 0.1 // Ativa quando 10% do elemento estiver visível
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, observerOptions);
+
+        // Seleciona todos os elementos com a classe 'hidden' e aplica o observador
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
+
+        // Suavização do scroll para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click
